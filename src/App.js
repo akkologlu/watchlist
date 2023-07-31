@@ -1,20 +1,29 @@
+import React from "react";
 import "./App.css";
-import Discover from "./components/Discover";
-import Watchlist from "./components/Watchlist";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
+import Discover from "./components/Discover";
+import Watchlist from "./components/Watchlist";
+import Search from "./components/Search";
 
 function App() {
+  const location = useLocation();
+
+  // Check if the current route is the home page
+  const isHome = location.pathname === "/";
+
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/discover" element={<Discover />} />
-        <Route path="/watchlist" element={<Watchlist />} />
-        <Route path="/search" element={<div>Search</div>} />
-      </Routes>
+    <div className={`App ${isHome ? "home-bg" : "bg-color"}`}>
+      <Navbar isHome={isHome} />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/discover" element={<Discover />} />
+          <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/search" element={<Search />} />
+        </Routes>
+      </div>
     </div>
   );
 }

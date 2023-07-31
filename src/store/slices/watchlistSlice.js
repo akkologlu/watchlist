@@ -18,8 +18,13 @@ const watchlistSlice = createSlice({
         poster_path: action.payload.poster_path,
       });
     },
+    removeFromWatchlist: (state, action) => {
+      state.watchlist = state.watchlist.filter(
+        (movie) => movie.id !== action.payload.id
+      );
+    },
   },
 });
 
-export const { addToWatchlist } = watchlistSlice.actions;
+export const { addToWatchlist, removeFromWatchlist } = watchlistSlice.actions;
 export const watchlistReducer = watchlistSlice.reducer;

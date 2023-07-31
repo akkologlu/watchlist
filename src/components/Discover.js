@@ -1,16 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import searcMovies from "../api";
-import { useDispatch, useSelector } from "react-redux";
-import { addToWatchlist } from "../store/slices/watchlistSlice";
+import { discoverMovies } from "../api";
+import SwiperComp from "./SwiperComp";
+import "swiper/css";
+import "swiper/css/pagination";
 
 function Discover() {
-  const dispatch = useDispatch();
-
   const [movies, setMovies] = useState([]);
 
-  const fetchData = async (term) => {
-    const fetchedMovies = await searcMovies(term);
+  const fetchData = async () => {
+    const fetchedMovies = await discoverMovies();
     setMovies(fetchedMovies);
   };
   useEffect(() => {
@@ -20,30 +19,14 @@ function Discover() {
     <div>
       {movies.length > 0 ? (
         <>
-          {movies.map((movie) => {
-            return (
-              <div key={movie.id}>
-                <h1>{movie.id}</h1>
-                <p>{movie.original_title}</p>
-                <button
-                  onClick={() => {
-                    dispatch(
-                      addToWatchlist({
-                        id: movie.id,
-                        title: movie.original_title,
-                        poster_path: movie.poster_path,
-                      })
-                    );
-                  }}
-                >
-                  <img
-                    src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-                    alt=""
-                  />
-                </button>
-              </div>
-            );
-          })}
+          <div className="mx-16">
+            <h4 className=" text-primary font-roboto text-center text-3xl  ml-4 sm:text-left">
+              Popular Now
+            </h4>
+            <div className="text-center ">
+              <SwiperComp movies={movies} />
+            </div>
+          </div>
         </>
       ) : (
         <p>Loading...</p>

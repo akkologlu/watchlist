@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { removeFromWatchlist } from "../store/slices/watchlistSlice";
 
 function Watchlist() {
   const { watchlist } = useSelector((state) => state.watchlist);
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -16,6 +19,13 @@ function Watchlist() {
               src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
               alt=""
             />
+            <button
+              onClick={() => {
+                dispatch(removeFromWatchlist({ id: movie.id }));
+              }}
+            >
+              Delete
+            </button>
           </div>
         ))
       ) : (
