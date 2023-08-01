@@ -15,11 +15,18 @@ function Search() {
     dispatch(setResults(results));
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Search" name="search" />
-        <button>Search</button>
-      </form>
+    <div className="min-h-screen">
+      <div className="flex flex-col justify center">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            className="w-11/12 border pl-16 text-3xl rounded-3xl p-2 m-5 bg-neutral-800 border-none h-24 text-white text-opacity-50 outline-none"
+          />
+        </form>
+      </div>
+
       {results.length > 0 ? (
         <>
           {results.map((result) => {
@@ -27,7 +34,7 @@ function Search() {
           })}
         </>
       ) : (
-        <p>Loading...</p>
+        <p className="text-primary">Loading...</p>
       )}
     </div>
   );

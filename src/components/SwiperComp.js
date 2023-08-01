@@ -19,6 +19,7 @@ function SwiperComp({ movies }) {
   const handleMouseLeave = () => {
     setHoverIndex(-1);
   };
+
   return (
     <div>
       {movies.length > 0 ? (

@@ -29,7 +29,8 @@ function Movie({ movie, showAddButton }) {
                 })
               );
             }}
-            className="absolute text-primary bottom-2 bg-secondary font-bold py-1 px-2 rounded "
+            className="absolute text-primary bottom-2 bg-secondary font-bold py-1 px-2 rounded hover:bg-primary hover:text-secondary ease-in-out duration-500 active:bg-violet-700 focus:outline-none 
+            "
           >
             Add to Watchlist
           </button>
