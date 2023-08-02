@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { discoverMovies, discoverMoviesByGenres, genreList } from "../api";
+import { discoverMoviesByGenres, genreList } from "../api";
 import SwiperComp from "./SwiperComp";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,13 +9,20 @@ import {
 } from "../store/slices/watchlistSlice";
 
 function Discover() {
+  const [loading, setLoading] = useState(true);
   const { moviesByGenre } = useSelector((state) => state.watchlist);
   const dispatch = useDispatch();
   const [genres, setGenres] = useState([]);
 
   const fetchData = async () => {
-    const fetchedGenres = await genreList();
-    setGenres(fetchedGenres);
+    setLoading(true);
+    try {
+      const fetchedGenres = await genreList();
+      setGenres(fetchedGenres);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
   };
 
   const fetchMoviesByGenre = async (genreId) => {

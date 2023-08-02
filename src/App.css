@@ -3,13 +3,6 @@
   background-color: #141414; /* Replace "your-color" with the desired background color */
 }
 
-/* Styles for the Navbar on the home page */
-.navbar-home {
-  /* Add your styles here for the Navbar on the home page */
-  /* For example, if you want the Navbar to be transparent on the home page, you can do this: */
-  background-color: transparent;
-}
-
 .home-bg {
   position: relative;
 }
@@ -27,8 +20,8 @@
       rgba(0, 0, 0, 0),
       rgba(0, 0, 0, 0.9)
     ),
-    url("./assets/hero.jpg");
-  filter: blur(10px);
+    url("./assets/hero2.jpg");
+  filter: blur(5px);
   z-index: -1;
 }
 .swiper-pagination-bullet {
@@ -42,4 +35,8 @@
 
 .swiper-pagination-bullet-active {
   opacity: 1;
+}
+
+.mainNav a.active {
+  color: #f74b03;
 }

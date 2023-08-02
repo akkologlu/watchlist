@@ -57,7 +57,6 @@ const discoverMoviesByGenres = async (genreId) => {
 };
 const genreList = async () => {
   const apiUrl = "https://api.themoviedb.org/3/genre/movie/list";
-  const apiKey = "YOUR_TMDB_API_KEY";
 
   const params = {
     language: "en-US",

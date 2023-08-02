@@ -1,27 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
     <section id="hero">
-      <div className="h-screen flex justify-center">
-        <div className="flex flex-col justify-center h-96 mx-6 items-center mt-24 max-w-6xl sm:mx-16 md:space-y-16 space-y-8">
+      <div className="h-screen flex justify-center sm:mt-32">
+        <div className="flex flex-col justify-center h-96 mx-6 items-center mt-24 max-w-6xl sm:mx-16 md:space-y-16 space-y-8 text-center">
           <h1
             className="text-primary font-bold
-        text-5xl font-merriweather-sans"
+        text-3xl font-merriweather-sans sm:text-5xl md:text-7xl "
           >
-            Create Watchlist for Movies and TV Series
+            Create Your Watchlist for Unforgettable Cinema Experiences
           </h1>
-          <p className="text-primary text-3-xl mt-6 mb-11">
-            Keep new, popular and upcoming content on your list, save them and
-            don't forget to watch.
-          </p>
+          <h2
+            className="text-primary
+        text-xl font-roboto sm:text-2xl md:text-3xl"
+          >
+            Welcome to{" "}
+            <span className="text-secondary font-bold">Watchlyst</span>, where
+            you can curate unforgettable cinematic experiences. Add your
+            favorite movies, create lists, and never miss out on the latest
+            releases. Managing your dream movie-watching journey has never been
+            easier!
+          </h2>
           <div className="flex flex-col text-primary justify-center w-full space-y-6 text-xl md:flex-row md:space-y-0 md:space-x-10">
-            <button className="rounded-full bg-secondary py-4 px-8 shadow-lg duration-200 hover:opacity-80">
-              Movies
-            </button>
-            <button className="rounded-full bg-secondary py-4 px-8 shadow-lg duration-200 hover:opacity-80">
-              Series
-            </button>
+            <Link
+              to="/discover"
+              className="rounded-full bg-secondary py-4 px-8 shadow-lg duration-200 hover:opacity-80"
+            >
+              Discover
+            </Link>
           </div>
         </div>
       </div>
