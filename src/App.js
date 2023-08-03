@@ -7,6 +7,7 @@ import Discover from "./components/Discover";
 import Watchlist from "./components/Watchlist";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
+import MovieDetail from "./components/MovieDetail";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
           <Route path="/discover" element={<Discover />} />
           <Route path="/search" element={<Search />} />
           <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/movie" element={<MovieDetail />} />
         </Routes>
       </div>
       <Footer />

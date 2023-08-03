@@ -4,6 +4,7 @@ import { searchReducer } from "./slices/seachSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 import { combineReducers } from "@reduxjs/toolkit";
+import { detailReducer } from "./slices/detailSlice";
 
 const watchlistPersistConfig = {
   key: "watchlist",
@@ -15,18 +16,23 @@ const searchPersistConfig = {
   key: "search",
   version: 1,
   storage,
-  blacklist: ["search"], // Exclude the "search" reducer from being persisted
+  blacklist: ["search"],
+};
+
+const detailPersistConfig = {
+  key: "detail",
+  version: 1,
+  storage,
 };
 
 const rootReducer = combineReducers({
   watchlist: persistReducer(watchlistPersistConfig, watchlistReducer),
-  search: searchReducer,
+  search: persistReducer(searchPersistConfig, searchReducer),
+  detail: persistReducer(detailPersistConfig, detailReducer),
 });
 
-const persistedReducer = persistReducer(searchPersistConfig, rootReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,

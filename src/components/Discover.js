@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import {
   addMoviesByGenre, // Import the action from watchlistSlice
 } from "../store/slices/watchlistSlice";
+import Loading from "./Loading";
 
 function Discover() {
   const [loading, setLoading] = useState(true);
@@ -40,7 +41,7 @@ function Discover() {
 
   return (
     <div className="min-h-screen">
-      {genres.length > 0 ? (
+      {genres.length > 0 && !loading ? (
         <>
           {genres.map((genre) => {
             return (
@@ -56,7 +57,9 @@ function Discover() {
           })}
         </>
       ) : (
-        <p>Loading...</p>
+        <div>
+          <Loading />
+        </div>
       )}
     </div>
   );
