@@ -28,9 +28,11 @@ const watchlistSlice = createSlice({
   },
   reducers: {
     addToWatchlist: (state, action) => {
-      if (state.watchlist.find((movie) => movie.id === action.payload.id)) {
+      const movieExists = state.watchlist.find(
+        (movie) => movie.id === action.payload.id
+      );
+      if (movieExists) {
         alert("Movie already in watchlist");
-
         return;
       }
       state.watchlist.push({

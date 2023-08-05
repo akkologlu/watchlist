@@ -8,9 +8,9 @@ function Movie({ movie, showAddButton }) {
   const dispatch = useDispatch();
   return (
     <div className="flex justify-center">
-      <Link to={`/movie`}>
+      <div className="relative flex flex-col items-center ">
         <button
-          className="relative flex justify-center"
+          className=" flex justify-center"
           key={movie.id}
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`,
@@ -23,26 +23,26 @@ function Movie({ movie, showAddButton }) {
           onClick={() => {
             dispatch(addDetail(movie));
           }}
-        >
-          {showAddButton && (
-            <button
-              onClick={() => {
-                dispatch(
-                  addToWatchlist({
-                    id: movie.id,
-                    title: movie.original_title,
-                    poster_path: movie.poster_path,
-                  })
-                );
-              }}
-              className="absolute text-primary bottom-2 bg-secondary font-bold py-1 px-2 rounded hover:bg-primary hover:text-secondary ease-in-out duration-500 active:bg-violet-700 focus:outline-none 
+        ></button>
+
+        {showAddButton && (
+          <button
+            onClick={() => {
+              dispatch(
+                addToWatchlist({
+                  id: movie.id,
+                  title: movie.original_title,
+                  poster_path: movie.poster_path,
+                })
+              );
+            }}
+            className="absolute z-20 bottom-2  text-primary  bg-secondary font-bold py-1 px-2 rounded hover:bg-primary hover:text-secondary ease-in-out duration-500 active:bg-violet-700 focus:outline-none 
             "
-            >
-              Add to Watchlist
-            </button>
-          )}
-        </button>
-      </Link>
+          >
+            Add to Watchlist
+          </button>
+        )}
+      </div>
     </div>
   );
 }

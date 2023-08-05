@@ -5,7 +5,7 @@ function Home() {
   return (
     <section id="hero">
       <div className="h-screen flex justify-center sm:mt-32">
-        <div className="flex flex-col justify-center h-96 mx-6 items-center mt-24 max-w-6xl sm:mx-16 md:space-y-16 space-y-8 text-center">
+        <div className="flex flex-col justify-center h-96 mx-6 items-center mt-24 max-w-6xl sm:mx-16 md:space-y-16 space-y-8 text-center ouline">
           <h1
             className="text-primary font-bold
         text-3xl font-merriweather-sans sm:text-5xl md:text-7xl "

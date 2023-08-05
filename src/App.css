@@ -163,3 +163,11 @@
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translateX(-6px);
 }
+.swiper-button-next {
+  color: #f74b03 !important;
+  font-weight: bolder;
+}
+.swiper-button-prev {
+  color: #f74b03 !important;
+  font-weight: bolder;
+}

@@ -16,7 +16,6 @@ const searchPersistConfig = {
   key: "search",
   version: 1,
   storage,
-  blacklist: ["search"],
 };
 
 const detailPersistConfig = {

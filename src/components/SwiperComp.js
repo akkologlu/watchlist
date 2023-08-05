@@ -33,22 +33,27 @@ function SwiperComp({ movies }) {
             640: {
               slidesPerView: 2,
               spaceBetween: 10,
+              slidesPerGroup: 2,
             },
             768: {
               slidesPerView: 3,
               spaceBetween: 20,
+              slidesPerGroup: 3,
             },
             1024: {
               slidesPerView: 4,
               spaceBetween: 30,
+              slidesPerGroup: 4,
             },
             1440: {
               slidesPerView: 6,
               spaceBetween: 30,
+              slidesPerGroup: 6,
             },
             1920: {
               slidesPerView: 8,
               spaceBetween: 30,
+              slidesPerGroup: 8,
             },
           }}
         >
