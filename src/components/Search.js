@@ -27,7 +27,7 @@ function Search() {
     dispatch(setResults(results));
     event.target.search.value = "";
   };
-
+  //Comment line
   const discoverFetch = async () => {
     setLoading(true);
     try {
