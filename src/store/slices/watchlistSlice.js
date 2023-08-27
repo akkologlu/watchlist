@@ -40,6 +40,7 @@ const watchlistSlice = createSlice({
         title: action.payload.title,
         poster_path: action.payload.poster_path,
       });
+      alert("Movie added to your watchlist");
     },
     removeFromWatchlist: (state, action) => {
       state.watchlist = state.watchlist.filter(

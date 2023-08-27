@@ -23,7 +23,9 @@ function App() {
           <Route path="/discover" element={<Discover />} />
           <Route path="/search" element={<Search />} />
           <Route path="/watchlist" element={<Watchlist />} />
-          <Route path="/movie" element={<MovieDetail />} />
+          //
+          <Route path="/discover/movies/:movieId" element={<MovieDetail />} />
+          <Route path="/search/movies/:movieId" element={<MovieDetail />} />
         </Routes>
       </div>
       <Footer />

@@ -77,4 +77,29 @@ const genreList = async () => {
   }
 };
 
-export { discoverMovies, searchMovies, discoverMoviesByGenres, genreList };
+const discoverMoviesById = async (movieId) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+    {
+      params: {
+        include_adult: "false",
+        language: "en-US",
+        page: "1",
+      },
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NTAzMWJiYWVhMDQ4Y2I0M2I5NzU2OTQ3ODJlOGM0YyIsInN1YiI6IjY0YTgwNTcxNjVjMjZjMDBjYTllOTg4NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.L9lELWP7Z-jwtuOrwWzVULdg09beTHIdPMMeBUqIkdE",
+      },
+    }
+  );
+  return response.data.results;
+};
+
+export {
+  discoverMovies,
+  searchMovies,
+  discoverMoviesByGenres,
+  genreList,
+  discoverMoviesById,
+};
